@@ -2,7 +2,7 @@ using SteveSharp.Core;
 
 namespace RetoHardcore
 {
-    public class rt
+    public class RT
     {
         public string AddObjectives(Score[] scores)
         {
@@ -13,19 +13,25 @@ namespace RetoHardcore
             }
             return commands;
         }
-        public static Score Return = new Score("rt.return");
-        public static Score corazonFrio = new Score("rt.corazonFrio", "used:warped_fungus_on_a_stick");
-        public static Score corazonFrioCooldown = new Score("rt.corazonFrio.Cooldown");
-        public static Score sed = new Score("rt.sed");
-        public static Score sedHurtInterval = new Score("rt.sed.hurtInterval");
-        public static Score dieEvent = new Score("rt.dieEvent", "deathCount");
+        public static Score ReturnSt = new Score("rt.return");
+        public Score Return = new Score("rt.return");
+        public static Score corazonFrioSt = new Score("rt.corazonFrio", "used:warped_fungus_on_a_stick");
+        public Score corazonFrio = new Score("rt.corazonFrio", "used:warped_fungus_on_a_stick");
+        public static Score corazonFrioCooldownSt = new Score("rt.corazonFrio.Cooldown");
+        public Score corazonFrioCooldown = new Score("rt.corazonFrio.Cooldown");
+        public static Score sedSt = new Score("rt.sed");
+        public Score sed = new Score("rt.sed");
+        public static Score sedHurtIntervalSt = new Score("rt.sed.hurtInterval");
+        public Score sedHurtInterval = new Score("rt.sed.hurtInterval");
+        public static Score dieEventSt = new Score("rt.dieEvent", "deathCount");
+        public Score dieEvent = new Score("rt.dieEvent", "deathCount");
         public Score[] scores = {
-            Return,
-            corazonFrio,
-            corazonFrioCooldown,
-            sed,
-            sedHurtInterval,
-            dieEvent
+            ReturnSt,
+            corazonFrioSt,
+            corazonFrioCooldownSt,
+            sedSt,
+            sedHurtIntervalSt,
+            dieEventSt
         };
     }
 }

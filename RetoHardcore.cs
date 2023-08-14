@@ -5,7 +5,7 @@ namespace RetoHardcore {
 	public class RetoHardcore {
 		public static void Main(){
 			FileOrganizer FO = new FileOrganizer();
-			rt rt = new rt();
+			RT rt = new RT();
 			Project p = new Project(
 				name: "Reto Hardcore",
 				description: "Reto Hardcore by Mikel & LezaH",
@@ -19,6 +19,10 @@ namespace RetoHardcore {
 				rt.AddObjectives(rt.scores)
 			};
 			Load.WriteAllCommands(loadContents);
+
+			Main Main = new Main();
+			Main.Create();
+			
 			Console.ReadLine();
 		}
 	}
