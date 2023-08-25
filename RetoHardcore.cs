@@ -22,7 +22,9 @@ namespace RetoHardcore {
 
 			Main Main = new Main();
 			Main.Create();
-			
+			SedDisplay SedDisplay = new SedDisplay();
+			SedDisplay.Create();
+
 			Console.ReadLine();
 		}
 	}
