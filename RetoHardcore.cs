@@ -1,11 +1,13 @@
 ﻿using SteveSharp;
 using SteveSharp.Core;
+using RetoHardcore.Items;
+using RetoHardcore.Events;
+using RetoHardcore.Properties;
 
 namespace RetoHardcore {
 	public class RetoHardcore {
 		public static void Main(){
 			FileOrganizer FO = new FileOrganizer();
-			RT rt = new RT();
 			Project p = new Project(
 				name: "Reto Hardcore",
 				description: "Reto Hardcore by Mikel & LezaH",
@@ -15,16 +17,34 @@ namespace RetoHardcore {
 				main: "main"
 			);
 			Function Load = new Function(FO.GetFunctionPath("reto:load"));
-			string[] loadContents = {
-				rt.AddObjectives(rt.scores)
+			static string AddObjectives(Score[] scores)
+        	{
+            	string commands = "";
+            	foreach(Score score in scores)
+            	{
+                	commands += $"scoreboard objectives add {score.id} {score.type} {score.name}\n";
+            	}
+            	return commands;
+        	}
+			string[] commands = {
+				AddObjectives(new Score[]{
+					new Score("rt.return"),
+            		new Score("rt.corazonFrio", "used:warped_fungus_on_a_stick"),
+        	    	new Score("rt.corazonFrio.Cooldown"),
+            		new Score("rt.sed"),
+            		new Score("rt.sed.hurtInterval"),
+	            	new Score("rt.dieEvent", "deathCount")
+				})
 			};
-			Load.WriteAllCommands(loadContents);
-
+			Load.WriteAllCommands(commands);
 			Main Main = new Main();
 			Main.Create();
-			SedDisplay SedDisplay = new SedDisplay();
 			SedDisplay.Create();
-
+			ColdHeart.Create();
+			Hitbox.Create();
+			FirstJoin.Create();
+			Attack.Create();
+			DrinkWater.Create();
 			Console.ReadLine();
 		}
 	}

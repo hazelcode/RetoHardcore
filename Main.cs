@@ -6,7 +6,6 @@ namespace RetoHardcore
     {
         FileOrganizer FO = new FileOrganizer();
         Execute Execute = new Execute();
-        RT rt = new RT();
         Entity Entity = new Entity();
         public void Create() {
             Function main = new Function(FO.GetFunctionPath("reto:main"));
@@ -18,17 +17,17 @@ namespace RetoHardcore
                 ),
                 Execute.Write(
                     Execute.As("@a[scores={rt.corazonFrio.Cooldown=1..6000}]"),
-                    new[]{ rt.corazonFrioCooldown.Remove(Entity.Closest,1) }
+                    new[]{ RT.corazonFrioCooldown.Remove(Entity.Closest,1) }
                 ),
                 Execute.Write(
                     Execute.As("@a[scores={rt.corazonFrio.Cooldown=..0}]"),
-                    new[]{ rt.corazonFrioCooldown.Set(0, Entity.Self) }
+                    new[]{ RT.corazonFrioCooldown.Set(0, Entity.Self) }
                 ),
-                rt.corazonFrio.Reset("@a[scores={rt.corazonFrio=1..}]"),
+                RT.corazonFrio.Reset("@a[scores={rt.corazonFrio=1..}]"),
                 "\n## SED",
                 Execute.Write(
                     Execute.As("@a[scores={rt.sed=21..}]"),
-                    new[]{ rt.sed.Set(20, Entity.Self) }
+                    new[]{ RT.sed.Set(20, Entity.Self) }
                 ),
                 Execute.Write(
                     Execute.As("@a[gamemode=!creative,gamemode=!spectator]"),
@@ -37,13 +36,13 @@ namespace RetoHardcore
                 Execute.Write(
                     Execute.As("@a[predicate=reto:statements/sprinting,gamemode=survival,scores={rt.sed=1..}]") +
                     Execute.If("predicate reto:random/sed/sprinting"),
-                    new[]{ rt.sed.Remove(Entity.Self, 1) }
+                    new[]{ RT.sed.Remove(Entity.Self, 1) }
                 ),
                 Execute.Write(
                     Execute.As("@a[gamemode=survival,scores={rt.sed=1..}]") +
                     Execute.If("predicate reto:time/day") +
                     Execute.If("predicate reto:random/sed/sun"),
-                    new[]{ rt.sed.Remove(Entity.Self, 1) }
+                    new[]{ RT.sed.Remove(Entity.Self, 1) }
                 ),
                 "",
                 Execute.Write(
@@ -72,25 +71,25 @@ namespace RetoHardcore
                 ),
                 Execute.Write(
                     Execute.As("@a[scores={rt.sed=0}]"),
-                    new[]{ rt.sedHurtInterval.Add(1, Entity.Self) }
+                    new[]{ RT.sedHurtInterval.Add(1, Entity.Self) }
                 ),
                 Execute.Write(
                     Execute.As("@a[scores={rt.sed=0,rt.sed.hurtInterval=40..}]"),
                     new[]{
                         "damage @s 2 dry_out",
-                        rt.sedHurtInterval.Reset(Entity.Self)
+                        RT.sedHurtInterval.Reset(Entity.Self)
                     }
                 ),
                 "",
                 Execute.Write(
                     Execute.As("@a[scores={rt.dieEvent=1}]"),
-                    new[]{ rt.sed.Set(20, Entity.Self)}
+                    new[]{ RT.sed.Set(20, Entity.Self)}
                 ),
                 "\n## RESETEAR MUERTES",
                 Execute.Write(
                     Execute.As("@a[scores={rt.dieEvent=1..}]"),
                     new[]{
-                        rt.dieEvent.Reset(Entity.Self)
+                        RT.dieEvent.Reset(Entity.Self)
                     }
                 )
             };
