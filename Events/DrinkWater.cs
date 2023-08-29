@@ -5,11 +5,7 @@ namespace RetoHardcore.Events
 {
     public static class DrinkWater
     {
-        static FileOrganizer FO = new FileOrganizer();
-        static Execute Execute = new Execute();
-        static Entity Entity = new Entity();
-        static XYZ XYZ = new XYZ();
-        static Function drinkWater = new Function(FO.GetFunctionPath("reto:events/drink_water"));
+        static Function drinkWater = new Function(FileOrganizer.GetFunctionPath("reto:events/drink_water"));
 
         public static void Create(){
             string[] commands = {

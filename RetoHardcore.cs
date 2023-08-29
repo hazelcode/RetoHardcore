@@ -7,7 +7,6 @@ using RetoHardcore.Properties;
 namespace RetoHardcore {
 	public class RetoHardcore {
 		public static void Main(){
-			FileOrganizer FO = new FileOrganizer();
 			Project p = new Project(
 				name: "Reto Hardcore",
 				description: "Reto Hardcore by Mikel & LezaH",
@@ -16,18 +15,9 @@ namespace RetoHardcore {
 				load: "load",
 				main: "main"
 			);
-			Function Load = new Function(FO.GetFunctionPath("reto:load"));
-			static string AddObjectives(Score[] scores)
-        	{
-            	string commands = "";
-            	foreach(Score score in scores)
-            	{
-                	commands += $"scoreboard objectives add {score.id} {score.type} {score.name}\n";
-            	}
-            	return commands;
-        	}
+			Function Load = new Function(FileOrganizer.GetFunctionPath("reto:load"));
 			string[] commands = {
-				AddObjectives(new Score[]{
+				Score.AddObjectives(new Score[]{
 					new Score("rt.return"),
             		new Score("rt.corazonFrio", "used:warped_fungus_on_a_stick"),
         	    	new Score("rt.corazonFrio.Cooldown"),

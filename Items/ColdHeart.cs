@@ -5,11 +5,7 @@ namespace RetoHardcore.Items
 {
     public static class ColdHeart
     {
-        static FileOrganizer FO = new FileOrganizer();
-        static Execute Execute = new Execute();
-        static Entity Entity = new Entity();
-        static XYZ XYZ = new XYZ();
-        static Function coldHeart = new Function(FO.GetFunctionPath("reto:item/corazon_frio"));
+        static Function coldHeart = new Function(FileOrganizer.GetFunctionPath("reto:item/corazon_frio"));
 
         public static void Create(){
             string[] commands = {
@@ -33,7 +29,7 @@ namespace RetoHardcore.Items
                 ),
                 Entity.Kill("@e[type=#reto:warm,distance=..20]"),
                 "clear @s warped_fungus_on_a_stick{CustomModelData:1650001} 1",
-                RT.corazonFrioCooldown.Set(6000, Entity.Self)
+                RT.corazonFrioCooldown.Set(6000, Entity.Self())
             };
             coldHeart.WriteAllCommands(commands);
         }

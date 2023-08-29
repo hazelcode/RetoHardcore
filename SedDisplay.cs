@@ -3,7 +3,6 @@ namespace RetoHardcore;
 
 public static class SedDisplay
 {
-    static FileOrganizer FO = new FileOrganizer();
     static string[] FunctionLines = new string[]{};
     static void GetFunctionText(string path){
         FunctionLines = File.ReadAllLines(path);
@@ -18,7 +17,7 @@ public static class SedDisplay
             GetFunctionText("./../../../../sed_display.mcfunction");
             File.Copy("./../../../../sed_display.mcfunction", "./../sed_display.mcfunction");
         }
-        Function f = new Function(FO.GetFunctionPath("reto:sed_display"));
+        Function f = new Function(FileOrganizer.GetFunctionPath("reto:sed_display"));
         f.WriteAllCommands(FunctionLines);
     }
 }
