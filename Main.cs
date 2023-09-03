@@ -95,11 +95,12 @@ namespace RetoHardcore
                     Execute.If("block ~ ~-1 ~ bedrock ")
                     ),
                     new string[] { "effect give @p levitation 10 20 true" }
-                )
+                ),
+                "\n##EVENTOS",
+                main.Extend("reto:events/death_screen/death", DeathScreen.deathDetectCommands, true),
+                main.Extend("reto:events/death_screen/death_screen", DeathScreen.deathScreenCommands, true)
             };
             main.WriteAllCommands(contents);
-            main.Extend("reto:events/death_screen/death", DeathScreen.deathDetectCommands, true);
-            main.Extend("reto:events/death_screen/death_screen", DeathScreen.deathScreenCommands, true);
         }
     }
 }
