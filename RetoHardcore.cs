@@ -23,7 +23,8 @@ namespace RetoHardcore {
         	    	new Score("rt.corazonFrio.Cooldown"),
             		new Score("rt.sed"),
             		new Score("rt.sed.hurtInterval"),
-	            	new Score("rt.dieEvent", "deathCount")
+	            	new Score("rt.dieEvent", "deathCount"),
+					new Score("rt.deathScreen")
 				})
 			};
 			Load.WriteAllCommands(commands);

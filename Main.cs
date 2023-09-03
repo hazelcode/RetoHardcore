@@ -1,5 +1,6 @@
 using SteveSharp;
 using SteveSharp.Core;
+using RetoHardcore.Events;
 namespace RetoHardcore
 {
     public class Main
@@ -88,9 +89,17 @@ namespace RetoHardcore
                     new[]{
                         RT.dieEvent.Reset(Entity.Self())
                     }
+                ),
+                Execute.Write(
+                    Execute.Asat(Entity.Everyone(),
+                    Execute.If("block ~ ~-1 ~ bedrock ")
+                    ),
+                    new string[] { "effect give @p levitation 10 20 true" }
                 )
             };
             main.WriteAllCommands(contents);
+            main.Extend("reto:events/death_screen/death", DeathScreen.deathDetectCommands, true);
+            main.Extend("reto:events/death_screen/death_screen", DeathScreen.deathScreenCommands, true);
         }
     }
 }

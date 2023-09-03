@@ -10,5 +10,6 @@ namespace RetoHardcore
         public static Score sed = new Score("rt.sed");
         public static Score sedHurtInterval = new Score("rt.sed.hurtInterval");
         public static Score dieEvent = new Score("rt.dieEvent", "deathCount");
+        public static Score deathScreen = new Score("rt.deathScreen");
     }
 }
