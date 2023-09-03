@@ -96,7 +96,7 @@ namespace RetoHardcore
                     ),
                     new string[] { "effect give @p levitation 10 20 true" }
                 ),
-                "\n##EVENTOS",
+                "\n## EVENTOS",
                 main.Extend("reto:events/death_screen/death", DeathScreen.deathDetectCommands, true),
                 main.Extend("reto:events/death_screen/death_screen", DeathScreen.deathScreenCommands, true)
             };
